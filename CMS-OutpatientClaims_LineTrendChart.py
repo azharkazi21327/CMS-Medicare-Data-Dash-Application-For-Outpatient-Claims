@@ -42,12 +42,12 @@ yearly_payout = pd.DataFrame(payout_yearly_set,
 df = df.groupby(['CLM_THRU_DT', 'CLM_PMT_AMT', 'NCH_PRMRY_PYR_CLM_PD_AMT', 'NCH_BENE_BLOOD_DDCTBL_LBLTY_AM',
                  'NCH_BENE_PTB_DDCTBL_AMT', 'NCH_BENE_PTB_COINSRNC_AMT'], as_index=False).sum()
 row, col = df.shape
-# print(payout_progress.shape)
+
 # print(payout_progress.iat[0,1])
 for i in range(1, row):
     for j in range(1, col):
         df.iat[i, j] = df.iat[i, j] + df.iat[i - 1, j]
-# print("Progress Report Done")
+
 # print(df[:5])
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
